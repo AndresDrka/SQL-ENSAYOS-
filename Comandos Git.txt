@@ -1,0 +1,51 @@
+
+James G@DESKTOP-4LQF463 MINGW64 ~/Desktop/Autobiografia
+$ git init
+Initialized empty Git repository in C:/Users/James G/Desktop/Autobiografia/.git/
+
+James G@DESKTOP-4LQF463 MINGW64 ~/Desktop/Autobiografia (master)
+$ ls -la
+total 21
+drwxr-xr-x 1 James G 197121   0 Nov  6 15:22 ./
+drwxr-xr-x 1 James G 197121   0 Nov  6 15:18 ../
+drwxr-xr-x 1 James G 197121   0 Nov  6 15:22 .git/
+-rw-r--r-- 1 James G 197121 117 Nov  6 15:21 Autobiografia.txt
+
+James G@DESKTOP-4LQF463 MINGW64 ~/Desktop/Autobiografia (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Autobiografia.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+James G@DESKTOP-4LQF463 MINGW64 ~/Desktop/Autobiografia (master)
+$ git add Autobiografia.txt
+
+James G@DESKTOP-4LQF463 MINGW64 ~/Desktop/Autobiografia (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   Autobiografia.txt
+
+
+James G@DESKTOP-4LQF463 MINGW64 ~/Desktop/Autobiografia (master)
+$ git commit -m "Esta Autobiografia la escrivo en el 2022"
+[master (root-commit) ea4b11c] Esta Autobiografia la escrivo en el 2022
+ 1 file changed, 5 insertions(+)
+ create mode 100644 Autobiografia.txt
+
+James G@DESKTOP-4LQF463 MINGW64 ~/Desktop/Autobiografia (master)
+$ git log --oneline
+ea4b11c (HEAD -> master) Esta Autobiografia la escrivo en el 2022
+
+James G@DESKTOP-4LQF463 MINGW64 ~/Desktop/Autobiografia (master)
+$ git checkout codigooo

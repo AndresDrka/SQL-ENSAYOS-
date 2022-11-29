@@ -1,0 +1,47 @@
+<?php
+
+				$query="SELECT Al.id_alumno, Al.nombre, Al.edad,
+							   Carr.nombre_carrera, Carr.area_carrera,
+							   Gru.nombre_grupo, Gru.turno
+						FROM alumnos Al
+						INNER JOIN carreras Carr ON Al.id_carrera = Carr.id_carrera
+						INNER JOIN grupos Gru ON Al.id_grupo = Gru.id_grupo";
+				$consulta=$conexion->query($query);
+				while ($fila=$consulta->fetch(PDO::FETCH_ASSOC))
+					{
+						echo'
+						<tr>
+						<td>'.$fila['id_alumno'].'</td>
+						<td>'.$fila['nombre'].'</td>
+						<td>'.$fila['edad'].'</td>
+						<td>'.$fila['nombre_carrera'].'</td>
+						<td>'.$fila['area_carrera'].'</td>
+						<td>'.$fila['nombre_grupo'].'</td>
+						<td>'.$fila['turno'].'</td>
+						</tr>
+						';
+					}
+
+				$query="SELECT Ve.placa, Ve.pnp, Ve.snp, Ve.ap, Ve.marca
+							   Ho.hora salida, Ho.hora entrada,
+							   Con.pnc, Con.snc, Con.ac
+						FROM horarios Ho
+						INNER JOIN vehiculo  Ve ON Ho.placa = Ve.placa
+						INNER JOIN conductor Con ON Ho.id_grupo = Gru.id_grupo";
+				$consulta=$conexion->query($query);
+				while ($fila=$consulta->fetch(PDO::FETCH_ASSOC))
+					{
+						echo'
+						<tr>
+						<td>'.$fila['id_alumno'].'</td>
+						<td>'.$fila['nombre'].'</td>
+						<td>'.$fila['edad'].'</td>
+						<td>'.$fila['nombre_carrera'].'</td>
+						<td>'.$fila['area_carrera'].'</td>
+						<td>'.$fila['nombre_grupo'].'</td>
+						<td>'.$fila['turno'].'</td>
+						</tr>
+						';
+					}
+
+

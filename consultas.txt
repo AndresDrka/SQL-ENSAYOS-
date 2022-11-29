@@ -1,0 +1,49 @@
+Cuantos automóviles existen el la sucursal 1010 de marca Renault
+
+SELECT `automovil`.`marca`,`sucursal`.`idsucursal` FROM `dtautomovil` 
+INNER JOIN `automovil` ON `dtautomovil`.`idautomovil` = `automovil`.`idautomovil` 
+INNER JOIN `sucursal` ON `dtautomovil`.`idsucursal` = `sucursal`.`idsucursal`
+WHERE `sucursal`.`idsucursal`= 1010 ;
+
+SELECT `automovil`.`marca`,`sucursal`.`idsucursal` FROM `dtautomovil` 
+INNER JOIN `automovil` ON `dtautomovil`.`idautomovil` = `automovil`.`idautomovil` 
+INNER JOIN `sucursal` ON `dtautomovil`.`idsucursal` = `sucursal`.`idsucursal`
+WHERE `automovil`.`marca`= "Renault" ;
+
+
+SELECT `automovil`.`marca`,`sucursal`.`idsucursal` FROM `dtautomovil` 
+INNER JOIN `automovil` ON `dtautomovil`.`idautomovil` = `automovil`.`idautomovil` 
+INNER JOIN `sucursal` ON `dtautomovil`.`idsucursal` = `sucursal`.`idsucursal`
+WHERE `automovil`.`marca`= "Renault" AND `sucursal`.`idsucursal`= 1010;
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+existen 0
+
+Todos los automóviles Chevrolet diferentes al color negro que existen, en que sucursales hay
+disponibilidad, y el contacto del vendedor.
+
+SELECT `automovil`.`marca`,`dtautomovil`.`color`,`dtautomovil`.`cantidad`, `sucursal`.`idsucursal`, `sucursal`.`vendedor` FROM `dtautomovil` INNER JOIN `automovil` ON `dtautomovil`.`idautomovil` = `automovil`.`idautomovil` INNER JOIN `sucursal` ON `dtautomovil`.`idsucursal` = `sucursal`.`idsucursal` WHERE `automovil`.`marca`= "Chevrolet" AND `dtautomovil`.`color` != "Negro";
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+En que sucursales existen automóviles Kia Cerato de color blanco, con modelos después del 2016, y el
+contacto del vendedor.
+-----------------------------------------------------------------------------------------------------------------------------
+SELECT `automovil`.`marca`,`dtautomovil`.`color`, `automovil`.`modelo`,`sucursal`.`vendedor`,`sucursal`.`telefono`,`dtautomovil`.`año` FROM `dtautomovil` INNER JOIN `automovil` ON `dtautomovil`.`idautomovil` = `automovil`.`idautomovil` INNER JOIN `sucursal` ON `dtautomovil`.`idsucursal` = `sucursal`.`idsucursal` WHERE `automovil`.`marca`= "Kia" AND `dtautomovil`.`color`= "Blanco" AND `automovil`.`modelo`= "Cerato";
+------------------------------------------------------------------------------------------------------------------------------
+SELECT `automovil`.`marca`,`dtautomovil`.`color`, `automovil`.`modelo`,`sucursal`.`vendedor`,`sucursal`.`telefono`,`dtautomovil`.`año` 
+FROM `dtautomovil` INNER 
+JOIN `automovil` ON `dtautomovil`.`idautomovil` = `automovil`.`idautomovil` 
+INNER JOIN `sucursal` ON `dtautomovil`.`idsucursal` = `sucursal`.`idsucursal` 
+WHERE `automovil`.`marca`= "Kia" IN (`dtautomovil`.`año`>= 2016, `dtautomovil`.`color`= "Blanco", `automovil`.`modelo`= "Cerato");
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+Cuantos automóviles Renault existen en todas las sucursales con modelo mayor al 2016
+
+SELECT `automovil`.`marca`, `automovil`.`modelo`,`sucursal`.`idsucursal`,`dtautomovil`.`año`
+FROM `dtautomovil` 
+INNER JOIN `automovil` ON `dtautomovil`.`idautomovil` = `automovil`.`idautomovil` 
+INNER JOIN `sucursal` ON `dtautomovil`.`idsucursal` = `sucursal`.`idsucursal` 
+WHERE `automovil`.`marca`= "Renault" AND `dtautomovil`.`año`> 2016;
+
